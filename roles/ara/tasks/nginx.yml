@@ -1,0 +1,27 @@
+---
+
+- name: ARA NGINX | Configure SELinux
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
+  when: ansible_os_family == "RedHat"
+
+- name: ARA NGINX | Proxy configuration
+  template:
+    src: etc/nginx/sites-available/ara.conf.j2
+    dest: "{{ ara_nginx_config_dir }}/ara.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Reload nginx
+
+- name: ARA NGINX | Enable conf on Debian
+  file:
+    src: "{{ ara_nginx_config_dir }}/ara.conf"
+    dest: /etc/nginx/sites-enabled/ara.conf
+    state: link
+    owner: root
+    group: root
+  notify: Restart nginx
+  when: ansible_os_family == 'Debian'

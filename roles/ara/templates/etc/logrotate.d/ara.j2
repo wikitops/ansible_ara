@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+{{ ara_log_dir }}/*.log {
+    rotate 14
+    size 10M
+    missingok
+    compress
+    copytruncate
+}

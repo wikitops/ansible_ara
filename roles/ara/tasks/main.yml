@@ -1,0 +1,21 @@
+---
+
+- name: ARA | Manage environment variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: ARA | Install prerequisitie packages
+  package:
+    name: "{{ ara_prerequisite_packages }}"
+    state: present
+
+- name: ARA | Manage user
+  import_tasks: users.yml
+
+- name: ARA | Manage installation
+  import_tasks: install.yml
+
+- name: ARA | Manage configuration
+  import_tasks: configure.yml
+
+- name: ARA | Configure Nginx
+  import_tasks: nginx.yml

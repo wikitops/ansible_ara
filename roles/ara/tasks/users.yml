@@ -1,0 +1,13 @@
+---
+
+- name: ARA USERS | Create group
+  group:
+    name: "{{ ara_group }}"
+
+- name: ARA USERS | Create user
+  user:
+    name: "{{ ara_user }}"
+    groups: "{{ ara_group }}"
+    comment: User for ARA Records Ansible
+    shell: /sbin/nologin
+    home: /var/lib/ara

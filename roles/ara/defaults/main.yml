@@ -1,0 +1,36 @@
+---
+
+###
+# ARA
+###
+
+# Sources
+ara_source_repository: "git+https://git.openstack.org/openstack/ara"
+
+# Users
+ara_user: ara
+ara_group: ara
+
+# Deployment
+ara_from_pypi: true
+ara_from_source: false
+
+# Confguration
+ara_home: /var/lib/ara
+ara_dir: "{{ ara_home }}/.ara"
+ara_database: "sqlite:///{{ ara_home }}/ansible.sqlite"
+ara_host: 127.0.0.1
+ara_port: 9191
+ara_application_root: /
+
+# Logs
+ara_log_dir: /var/log/ara
+ara_log_config: None
+ara_log_file: "{{ ara_log_dir }}/ara.log"
+ara_log_level: INFO
+
+# Nginx
+ara_nginx_listen_port: 80
+ara_nginx_server_name: ara.wikitops.io
+ara_nginx_cache_dir: /var/cache/nginx
+ara_nginx_log_dir: /var/log/nginx

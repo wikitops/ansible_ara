@@ -1,0 +1,13 @@
+---
+
+- name: ARA INSTALL | From sources
+  pip:
+    name: "{{ ara_source_repository }}"
+    state: present
+  when: ara_from_source
+
+- name: ARA INSTALL | From Pypi
+  pip:
+    name: ara
+    state: present
+  when: ara_from_pypi

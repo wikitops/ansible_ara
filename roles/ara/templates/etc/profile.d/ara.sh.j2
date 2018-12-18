@@ -1,0 +1,31 @@
+# {{ ansible_managed }}
+
+# Global
+ARA_DIR={{ ara_dir }}
+ARA_DATABASE={{ ara_database }}
+ARA_HOST={{ ara_host }}
+ARA_PORT={{ ara_port }}
+ARA_APPLICATION_ROOT={{ ara_application_root }}
+
+# Logging
+ARA_LOG_CONFIG={{ ara_log_config }}
+ARA_LOG_FILE={{ ara_log_file }}
+ARA_LOG_LEVEL={{ ara_log_level }}
+ARA_LOG_FORMAT="{{ ara_log_format }}"
+
+# Ignoring
+ARA_IGNORE_FACTS={{ ara_ignore_facts }}
+ARA_IGNORE_PARAMETERS={{ ara_ignore_parameters }}
+ARA_IGNORE_EMPTY_GENERATION={{ ara_ignore_empty_generation }}
+ARA_IGNORE_MIMETYPE_WARNINGS={{ ara_ignore_mimetype_warnings }}
+
+# Playbook
+ARA_PLAYBOOK_OVERRIDE={{ ara_playbook_override }}
+ARA_PLAYBOOK_PER_PAGE={{ ara_playbook_per_page }}
+ARA_RESULT_PER_PAGE={{ ara_result_per_page }}
+
+# SQLAlchemy
+SQLALCHEMY_ECHO={{ ara_sqlalchemy_echo }}
+SQLALCHEMY_POOL_SIZE={{ ara_sqlalchemy_pool_size }}
+SQLALCHEMY_POOL_TIMEOUT={{ ara_sqlalchemy_pool_timeout }}
+SQLALCHEMY_POOL_RECYCLE={{ ara_sqlalchemy_pool_recycle }}

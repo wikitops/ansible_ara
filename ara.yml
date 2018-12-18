@@ -1,0 +1,7 @@
+---
+
+- hosts: ara
+  remote_user: vagrant
+  become: yes
+  roles:
+    - ara

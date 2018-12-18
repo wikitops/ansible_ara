@@ -1,0 +1,41 @@
+---
+
+- name: ARA CONFIGURE | Create directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: 0750
+  with_items:
+    - {path: "{{ ara_log_dir }}", owner: "{{ ara_user }}", group: "{{ ara_group }}"}
+    - {path: "{{ ara_home }}", owner: "{{ ara_user }}", group: "{{ ara_group }}"}
+    - {path: /etc/ara, owner: root, group: root}
+
+- name: ARA CONFIGURE | Log rotation
+  template:
+    src: etc/logrotate.d/ara.j2
+    dest: /etc/logrotate.d/ara
+    owner: root
+    group: root
+    mode: 0644
+
+- name: ARA CONFIGURE | Systemd
+  template:
+    src: lib/systemd/system/ara.service.j2
+    dest: /lib/systemd/system/ara.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart ara
+
+- name: ARA CONFIGURE | Configuration
+  template:
+    src: etc/ara/ara.cfg.j2
+    dest: /etc/ara/ara.cfg
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Restart ara
+    - Restart nginx

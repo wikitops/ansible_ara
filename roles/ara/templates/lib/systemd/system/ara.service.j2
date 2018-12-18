@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=ARA
+After=network.target
+
+[Service]
+Type=simple
+TimeoutStartSec=0
+Restart=on-failure
+RestartSec=10
+RemainAfterExit=yes
+User={{ ara_user }}
+Group={{ ara_group }}
+Environment=ANSIBLE_CONFIG=/etc/ara/ara.cfg
+ExecStart={{ ara_manage_bin }} runserver
+
+[Install]
+WantedBy=multi-user.target

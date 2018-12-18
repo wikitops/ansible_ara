@@ -1,0 +1,34 @@
+# {{ ansible_managed }}
+
+[defaults]
+# This directory is required to store temporary files for Ansible and ARA
+local_tmp = {{ ara_home }}/.ansible/tmp
+
+[ara]
+
+# Directory where files are stored by default
+dir = {{ ara_home }}/.ara
+
+# Default database to store Ara reports
+database = {{ ara_database }}
+
+# Port to listen on for embedded server or apache
+port = {{ ara_port }}
+
+# Root (or prefix) for the web application location
+application_root = {{ ara_application_root }}
+
+# Host to listen on for embedded server, apache or nginx
+host = {{ ara_host }}
+
+# Path to the logging configuration
+logconfig = {{ ara_log_config }}
+
+# Path where logs are stored
+logdir: {{ ara_log_dir }}
+
+# Name of the log file
+logfile: {{ ara_log_file }}
+
+# Level of logs : DEBUG, INFO, WARN, ERROR
+loglevel: {{ ara_log_level }}

@@ -1,0 +1,23 @@
+---
+
+###
+# ARA ON DEBIAN
+###
+
+# Prerequisite packages
+ara_prerequisite_packages:
+  - gcc
+  - python-dev
+  - libffi-dev
+  - libssl-dev
+
+# Ara binaries
+ara_wsgi_bin: /usr/local/bin/ara-wsgi
+ara_manage_bin: /usr/local/bin/ara-manage
+
+# Nginx user
+ara_nginx_user: www-data
+ara_nginx_group: www-data
+
+# Nginx configue file
+ara_nginx_config_dir: /etc/nginx/sites-available

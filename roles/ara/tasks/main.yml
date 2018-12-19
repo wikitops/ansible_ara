@@ -3,7 +3,7 @@
 - name: ARA | Manage environment variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: ARA | Install prerequisitie packages
+- name: ARA | Install prerequisites packages
   package:
     name: "{{ ara_prerequisite_packages }}"
     state: present

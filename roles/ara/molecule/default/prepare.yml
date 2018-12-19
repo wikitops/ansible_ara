@@ -1,0 +1,10 @@
+---
+
+- name: MOLECULE | Preparation step
+  hosts: all
+  tasks:
+    - name: MOLECULE | Install prerequisites packages
+      package:
+        name:
+          - net-tools
+        state: present

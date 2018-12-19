@@ -1,5 +1,11 @@
 ---
 
+- name: ARA INSTALL | Install prerequisites packages
+  package:
+    name: libsemanage-python
+    state: present
+  when: ansible_os_family == 'RedHat'
+
 - name: ARA INSTALL | From sources
   pip:
     name: "{{ ara_source_repository }}"
